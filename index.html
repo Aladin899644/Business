@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>সেরা বিজনেস হাব</title>
+  <title>সেরা বিজনেস হাব | স্বাধীন ব্যবসায়িক হিসাব ব্যবস্থাপনা</title>
+  <meta name="description" content="সেরা বিজনেস হাব একটি স্বাধীন ব্যবসায়িক হিসাব ব্যবস্থাপনা টুল। Google Firebase Authentication দিয়ে সাইন ইন করুন; bKash ও Nagad-এর লেনদেনের ব্যক্তিগত হিসাব নিজে লিখে রাখুন। এটি কোনো আর্থিক সেবাদাতার অফিসিয়াল সাইট নয়।">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
@@ -15,9 +16,10 @@
     <div class="brand">সেরা বিজনেস হাব</div>
 
     <div class="auth-box">
-      <button id="login-btn" class="btn btn-google">
+      <button id="login-btn" class="btn btn-google" aria-label="Google অ্যাকাউন্ট দিয়ে সাইন ইন">
         <i class="fa-brands fa-google"></i> Google অ্যাকাউন্ট দিয়ে সাইন ইন
       </button>
+      <p class="hint">সাইন-ইন Google-এর নিজস্ব পপ-আপে সম্পন্ন হয়। এই সাইটে Google পাসওয়ার্ড দেবেন না।</p>
       <div id="user-profile" class="user-chip" style="display:none;">
         <img id="user-photo" src="" alt="User" class="user-avatar">
         <div class="user-info">
@@ -102,8 +104,8 @@
       <div class="card agent-card">
         <div class="brand-disclaimer" role="note"><strong>স্বাধীন হিসাব রাখার সুবিধা — bKash-এর অফিসিয়াল সেবা নয়।</strong><p>সেরা বিজনেস হাব bKash-এর সঙ্গে অনুমোদিত বা সংযুক্ত নয়। এখানে আপনি নিজের দেওয়া তথ্য দিয়ে কেবল হিসাব লিখে রাখবেন। এই ফর্ম bKash-এ টাকা পাঠায় না, Cash In/Cash Out সম্পন্ন করে না এবং আসল লেনদেন যাচাই বা অ্যাকাউন্ট থেকে তথ্য পড়ে না।</p><p><strong>কখনো bKash PIN, OTP, পাসওয়ার্ড বা নিরাপত্তা কোড লিখবেন না।</strong> গ্রাহকের নাম/মোবাইল নম্বর সংরক্ষণের আগে তাঁর অনুমতি নিন।</p></div>
         <h3>কাস্টমারের নম্বর / লেনদেনের নোট</h3>
-        <p class="hint">এখানে নম্বর আলাদা করে সংরক্ষণ হবে। OTP verification ব্যবহার করতে Firebase Console-এ Phone Authentication চালু করতে হবে। এই ফর্ম নিজে থেকে bKash-এর আসল অ্যাকাউন্টের লেনদেন পড়বে না।</p>
-        <form id="bkash-form" class="inline-form"><input id="bkash-name" placeholder="কাস্টমারের নাম"><input id="bkash-phone" placeholder="বিকাশ নম্বর" required><select id="bkash-type"><option value="cash-in">Cash In</option><option value="cash-out">Cash Out</option><option value="payment">Payment</option><option value="send-money">Send Money</option></select><input id="bkash-amount" type="number" placeholder="টাকার পরিমাণ" required><input id="bkash-note" placeholder="নোট"><button class="btn btn-primary">লেনদেন সেভ</button></form>
+        <p class="hint">এটি কেবল আপনার হাতে লেখা হিসাব সংরক্ষণ করে; কোনো bKash লেনদেন সম্পন্ন বা যাচাই করে না।</p>
+        <form id="bkash-form" class="inline-form"><input id="bkash-name" placeholder="কাস্টমারের নাম"><input id="bkash-phone" type="tel" autocomplete="off" placeholder="কাস্টমারের মোবাইল নম্বর" required><select id="bkash-type"><option value="cash-in">Cash In — হিসাবের এন্ট্রি</option><option value="cash-out">Cash Out — হিসাবের এন্ট্রি</option><option value="payment">Payment</option><option value="send-money">Send Money</option></select><input id="bkash-amount" type="number" placeholder="টাকার পরিমাণ" required><input id="bkash-note" placeholder="নোট"><button class="btn btn-primary">লেনদেন সেভ</button></form>
       </div>
       <div class="card"><h3>বিকাশ হিসাব</h3><div id="bkash-list" class="responsive-list"></div></div>
     </section>
@@ -113,8 +115,8 @@
       <div class="card agent-card">
         <div class="brand-disclaimer" role="note"><strong>স্বাধীন হিসাব রাখার সুবিধা — Nagad-এর অফিসিয়াল সেবা নয়।</strong><p>সেরা বিজনেস হাব Nagad-এর সঙ্গে অনুমোদিত বা সংযুক্ত নয়। এখানে আপনি নিজের দেওয়া তথ্য দিয়ে কেবল হিসাব লিখে রাখবেন। এই ফর্ম Nagad-এ টাকা পাঠায় না, Cash In/Cash Out সম্পন্ন করে না এবং আসল লেনদেন যাচাই বা অ্যাকাউন্ট থেকে তথ্য পড়ে না।</p><p><strong>কখনো Nagad PIN, OTP, পাসওয়ার্ড বা নিরাপত্তা কোড লিখবেন না।</strong> গ্রাহকের নাম/মোবাইল নম্বর সংরক্ষণের আগে তাঁর অনুমতি নিন।</p></div>
         <h3>কাস্টমারের নম্বর / লেনদেনের নোট</h3>
-        <p class="hint">নম্বর ও লেনদেন আলাদাভাবে Firebase-এ সংরক্ষণ হবে। আসল Nagad account-এর transaction automatically পড়ার জন্য Nagad API/merchant access প্রয়োজন।</p>
-        <form id="nagad-form" class="inline-form"><input id="nagad-name" placeholder="কাস্টমারের নাম"><input id="nagad-phone" placeholder="নগদ নম্বর" required><select id="nagad-type"><option value="cash-in">Cash In</option><option value="cash-out">Cash Out</option><option value="payment">Payment</option><option value="send-money">Send Money</option></select><input id="nagad-amount" type="number" placeholder="টাকার পরিমাণ" required><input id="nagad-note" placeholder="নোট"><button class="btn btn-primary">লেনদেন সেভ</button></form>
+        <p class="hint">এটি কেবল আপনার হাতে লেখা হিসাব সংরক্ষণ করে; কোনো Nagad লেনদেন সম্পন্ন বা যাচাই করে না।</p>
+        <form id="nagad-form" class="inline-form"><input id="nagad-name" placeholder="কাস্টমারের নাম"><input id="nagad-phone" type="tel" autocomplete="off" placeholder="কাস্টমারের মোবাইল নম্বর" required><select id="nagad-type"><option value="cash-in">Cash In</option><option value="cash-out">Cash Out</option><option value="payment">Payment</option><option value="send-money">Send Money</option></select><input id="nagad-amount" type="number" placeholder="টাকার পরিমাণ" required><input id="nagad-note" placeholder="নোট"><button class="btn btn-primary">লেনদেন সেভ</button></form>
       </div>
       <div class="card"><h3>নগদ হিসাব</h3><div id="nagad-list" class="responsive-list"></div></div>
     </section>
