@@ -25,3 +25,10 @@ table{width:100%;border-collapse:collapse;margin-top:15px}th,td{padding:12px;tex
 hr{border:0;border-top:1px solid #e2e8f0;margin:22px 0}
 @media(max-width:800px){.sidebar{width:210px;padding:12px}.navbar{padding:12px 15px}.dashboard-page,.page{padding:18px}.search-bar{width:180px}.btn-pdf{font-size:0}.btn-pdf i{font-size:16px}}
 @media(max-width:600px){.app-container{display:block}.sidebar{width:100%;position:relative}.nav-menu{display:grid;grid-template-columns:1fr 1fr}.navbar{flex-wrap:wrap}.search-bar{width:100%}.inline-form{grid-template-columns:1fr}}
+
+
+/* Clear non-affiliation and privacy notices */
+.brand-disclaimer{font-size:.84rem;line-height:1.6;color:#334155;background:#fff7ed;border:1px solid #fed7aa;border-left:4px solid #f97316;border-radius:8px;padding:12px 14px;margin:0 0 16px}
+.brand-disclaimer p{margin-top:6px}
+.brand-disclaimer strong{color:#9a3412}
+.auth-box .brand-disclaimer{font-size:.75rem;padding:9px 10px;margin-top:10px}
