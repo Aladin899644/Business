@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-  <link rel="icon" type="image/png" href="./logo.png">
-  <link rel="apple-touch-icon" href="./logo.png">
-  <meta property="og:image" content="https://aladin899644.github.io/Business/logo.png">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>সেরা বিজনেস হাব | স্বাধীন ব্যবসায়িক হিসাব ব্যবস্থাপনা</title>
-  <meta name="description" content="সেরা বিজনেস হাব একটি স্বাধীন ব্যবসায়িক হিসাব ব্যবস্থাপনা টুল। Google Firebase Authentication দিয়ে সাইন ইন করুন; bKash ও Nagad-এর লেনদেনের ব্যক্তিগত হিসাব নিজে লিখে রাখুন। এটি কোনো আর্থিক সেবাদাতার অফিসিয়াল সাইট নয়।">
+  <title data-i18n="appTitle">সেরা বিজনেস হাব</title>
+  <meta name="theme-color" content="#111a2e">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="সেরা বিজনেস হাব">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="app-icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="app-icon-192.png">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
@@ -16,33 +20,39 @@
 <body>
 <div class="app-container">
   <aside class="sidebar">
-    <div class="brand">সেরা বিজনেস হাব</div>
+    <div class="brand" aria-label="সেরা বিজনেস হাব">
+      <span class="brand-mark"><i class="fa-solid fa-chart-pie"></i></span>
+      <span class="brand-copy"><strong data-i18n="appTitle">সেরা বিজনেস হাব</strong><small data-i18n="businessManagement">বিজনেস ম্যানেজমেন্ট</small></span>
+    </div>
 
     <div class="auth-box">
-      <button id="login-btn" class="btn btn-google" aria-label="Google অ্যাকাউন্ট দিয়ে সাইন ইন">
-        <i class="fa-brands fa-google"></i> Google অ্যাকাউন্ট দিয়ে সাইন ইন
+      <button id="login-btn" class="btn btn-google">
+        <i class="fa-brands fa-google"></i> <span data-i18n="login">Gmail দিয়ে লগইন</span>
       </button>
-      <p class="hint">সাইন-ইন Google-এর নিজস্ব পপ-আপে সম্পন্ন হয়। এই সাইটে Google পাসওয়ার্ড দেবেন না।</p>
       <div id="user-profile" class="user-chip" style="display:none;">
         <img id="user-photo" src="" alt="User" class="user-avatar">
         <div class="user-info">
           <span id="user-name" class="u-name">ইউজার নাম</span>
-          <button id="logout-btn" class="logout-link">লগআউট</button>
+          <button id="logout-btn" class="logout-link" data-i18n="logout">লগআউট</button>
         </div>
       </div>
     </div>
 
-    <nav class="nav-menu">
-      <a href="#dashboard" class="nav-item active" data-page="dashboard"><i class="fa-solid fa-house"></i> ড্যাশবোর্ড</a>
-      <a href="#products" class="nav-item" data-page="products"><i class="fa-solid fa-list-check"></i> পণ্য তালিকা</a>
-      <a href="#electronics" class="nav-item" data-page="electronics"><i class="fa-solid fa-tv"></i> ইলেকট্রনিক্স পণ্য</a>
-      <a href="#computer" class="nav-item" data-page="computer"><i class="fa-solid fa-laptop"></i> কম্পিউটার সার্ভিস</a>
-      <a href="#school" class="nav-item" data-page="school"><i class="fa-solid fa-graduation-cap"></i> স্কুল কলেজ</a>
-      <a href="#print" class="nav-item" data-page="print"><i class="fa-solid fa-print"></i> কার্ড/ফটো প্রিন্ট</a>
-      <a href="#bkash" class="nav-item" data-page="bkash"><i class="fa-solid fa-calculator"></i> bKash হিসাব</a>
-      <a href="#nagad" class="nav-item" data-page="nagad"><i class="fa-solid fa-calculator"></i> Nagad হিসাব</a>
-      <a href="#due" class="nav-item" data-page="due"><i class="fa-solid fa-book"></i> বাকি খাতা</a>
-      <a href="#settings" class="nav-item" data-page="settings"><i class="fa-solid fa-gear"></i> সেটিং</a>
+    <div class="nav-caption" data-i18n="workspace">ওয়ার্কস্পেস</div>
+    <nav class="nav-menu" aria-label="প্রধান নেভিগেশন">
+      <a href="#dashboard" class="nav-item active" data-page="dashboard"><i class="fa-solid fa-house"></i> <span data-i18n="dashboard">ড্যাশবোর্ড</span></a>
+      <a href="#products" class="nav-item" data-page="products"><i class="fa-solid fa-list-check"></i> <span data-i18n="products">পণ্য তালিকা</span></a>
+      <a href="#electronics" class="nav-item" data-page="electronics"><i class="fa-solid fa-tv"></i> <span data-i18n="electronics">ইলেকট্রনিক্স পণ্য</span></a>
+      <a href="#computer" class="nav-item" data-page="computer"><i class="fa-solid fa-laptop"></i> <span data-i18n="computer">কম্পিউটার সার্ভিস</span></a>
+      <a href="#school" class="nav-item" data-page="school"><i class="fa-solid fa-graduation-cap"></i> <span data-i18n="school">স্কুল কলেজ</span></a>
+      <a href="#print" class="nav-item" data-page="print"><i class="fa-solid fa-print"></i> <span data-i18n="print">কার্ড/ফটো প্রিন্ট</span></a>
+      <a href="#bkash" class="nav-item" data-page="bkash"><i class="fa-solid fa-paper-plane"></i> <span data-i18n="bkash">বিকাশ এজেন্ট</span></a>
+      <a href="#nagad" class="nav-item" data-page="nagad"><i class="fa-solid fa-mobile-screen"></i> <span data-i18n="nagad">নগদ এজেন্ট</span></a>
+      <a href="#due" class="nav-item" data-page="due"><i class="fa-solid fa-book"></i> <span data-i18n="due">বাকি খাতা</span></a>
+      <a href="#online-products" class="nav-item" data-page="online-products"><i class="fa-solid fa-store"></i> <span data-i18n="onlineProductsMenu">অনলাইন পণ্য</span></a>
+      <a href="#barcode" class="nav-item" data-page="barcode"><i class="fa-solid fa-barcode"></i> <span data-i18n="barcodeMenu">বারকোড দাম</span></a>
+      <a href="#product-photos" class="nav-item" data-page="product-photos"><i class="fa-regular fa-images"></i> <span data-i18n="photoMenu">পণ্যের ছবি</span></a>
+      <a href="#settings" class="nav-item" data-page="settings"><i class="fa-solid fa-gear"></i> <span data-i18n="settings">সেটিং</span></a>
     </nav>
   </aside>
 
@@ -50,95 +60,199 @@
     <header class="navbar">
       <div class="search-bar">
         <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="text" id="search-input" placeholder="অনুসন্ধান করুন">
+        <input type="text" id="search-input" placeholder="অনুসন্ধান করুন" data-i18n-placeholder="search">
+        <span class="search-shortcut" aria-hidden="true">⌕</span>
       </div>
       <div class="nav-actions">
+        <span class="secure-label"><i class="fa-solid fa-shield-halved"></i><span data-i18n="secureWorkspace">সুরক্ষিত ওয়ার্কস্পেস</span></span>
+        <button id="install-app-btn" class="btn btn-install" type="button" hidden>
+          <i class="fa-solid fa-download"></i> <span data-i18n="installApp">অ্যাপ ইনস্টল</span>
+        </button>
         <button id="download-pdf-btn" class="btn btn-pdf">
-          <i class="fa-solid fa-file-pdf"></i> মাসিকের রিপোর্ট (PDF)
+          <i class="fa-solid fa-file-pdf"></i> <span data-i18n="monthlyReport">মাসিকের রিপোর্ট (PDF)</span>
         </button>
       </div>
     </header>
 
     <section id="page-dashboard" class="page dashboard-page">
-      <h1 class="page-title">ড্যাশবোর্ড</h1>
+      <div class="page-intro">
+        <div>
+          <div class="eyebrow"><span class="eyebrow-dot"></span><span data-i18n="businessOverview">বিজনেস ওভারভিউ</span></div>
+          <h1 class="page-title" data-i18n="dashboard">ড্যাশবোর্ড</h1>
+          <p class="page-subtitle" data-i18n="dashboardSubtitle">আপনার ব্যবসার গুরুত্বপূর্ণ হিসাব, এক জায়গায়।</p>
+        </div>
+        <div class="date-chip"><i class="fa-regular fa-calendar"></i><span id="business-date" data-i18n="today">আজকের তারিখ</span></div>
+      </div>
       <div class="stats-grid">
-        <div class="card stat-card border-yellow"><div class="stat-content"><span class="stat-title">মাসিক মোট বিক্রি</span><h2 id="total-sales-val" class="stat-value">৳০</h2></div><div class="stat-icon yellow"><i class="fa-solid fa-cart-shopping"></i></div></div>
-        <div class="card stat-card border-green"><div class="stat-content"><span class="stat-title">মাসিক মোট লাভ</span><h2 id="total-profit-val" class="stat-value">৳০</h2></div><div class="stat-icon green"><i class="fa-solid fa-hand-holding-dollar"></i></div></div>
-        <div class="card stat-card border-coral"><div class="stat-content"><span class="stat-title">মোট বাকি</span><h2 id="total-due-val" class="stat-value">৳০</h2></div></div>
+        <div class="card stat-card sales-card"><div class="stat-content"><span class="stat-title" data-i18n="monthlySales">মাসিক মোট বিক্রি</span><h2 id="total-sales-val" class="stat-value">৳০</h2><span class="stat-caption" data-i18n="salesCaption">বিক্রির সারসংক্ষেপ</span></div><div class="stat-icon yellow"><i class="fa-solid fa-arrow-trend-up"></i></div></div>
+        <div class="card stat-card profit-card"><div class="stat-content"><span class="stat-title" data-i18n="monthlyProfit">মাসিক মোট লাভ</span><h2 id="total-profit-val" class="stat-value">৳০</h2><span class="stat-caption" data-i18n="profitCaption">বিক্রি থেকে অর্জিত</span></div><div class="stat-icon green"><i class="fa-solid fa-coins"></i></div></div>
+        <div class="card stat-card due-card"><div class="stat-content"><span class="stat-title" data-i18n="totalDue">মোট বাকি</span><h2 id="total-due-val" class="stat-value">৳০</h2><span class="stat-caption" data-i18n="dueCaption">গ্রাহকের বকেয়া হিসাব</span></div><div class="stat-icon coral"><i class="fa-solid fa-clock-rotate-left"></i></div></div>
       </div>
 
       <div class="section-header">
-        <h2>নতুন আইটেম যোগ করুন</h2>
-        <button id="add-btn" class="btn btn-primary"><i class="fa-solid fa-plus"></i> নতুন পণ্য</button>
+        <div><h2 data-i18n="inventory">ইনভেন্টরি</h2><p class="section-subtitle" data-i18n="inventorySubtitle">পণ্যের স্টক ও মূল্য এক নজরে দেখুন</p></div>
+        <button id="add-btn" class="btn btn-primary"><i class="fa-solid fa-plus"></i> <span data-i18n="newProduct">নতুন পণ্য</span></button>
       </div>
       <div class="card table-card">
-        <h3 class="table-title">সাম্প্রতিক পণ্য তালিকা</h3>
+        <div class="table-heading"><div><h3 class="table-title" data-i18n="recentProducts">সাম্প্রতিক পণ্য তালিকা</h3><p class="table-subtitle" data-i18n="inventoryHint">আপনার পণ্যের স্টক ও মূল্য ব্যবস্থাপনা করুন</p></div><span class="table-badge"><i class="fa-solid fa-circle"></i><span data-i18n="liveData">লাইভ ডেটা</span></span></div>
         <div class="table-wrapper"><table id="product-table"><thead><tr>
-          <th>ছবি</th><th>পণ্যের নাম</th><th>ক্যাটাগরি</th><th>স্টক</th><th>ক্রয়মূল্য</th><th>বিক্রয়মূল্য</th><th>অ্যাকশন</th>
-        </tr></thead><tbody id="product-tbody"><tr><td colspan="7" class="center">তথ্য দেখতে অনুগ্রহ করে লগইন করুন।</td></tr></tbody>
-        <tfoot><tr class="total-row"><td colspan="3"><strong>সর্বমোট (Total)</strong></td><td id="total-stock"><strong>০</strong></td><td id="total-buy-price"><strong>৳০</strong></td><td id="total-sell-price"><strong>৳০</strong></td><td></td></tr></tfoot>
+          <th data-i18n="image">ছবি</th><th data-i18n="productName">পণ্যের নাম</th><th data-i18n="category">ক্যাটাগরি</th><th data-i18n="stock">স্টক</th><th data-i18n="buyPrice">ক্রয়মূল্য</th><th data-i18n="sellPrice">বিক্রয়মূল্য</th><th data-i18n="action">অ্যাকশন</th>
+        </tr></thead><tbody id="product-tbody"><tr><td colspan="7" class="center" data-i18n="loginToView">তথ্য দেখতে অনুগ্রহ করে লগইন করুন।</td></tr></tbody>
+        <tfoot><tr class="total-row"><td colspan="3"><strong data-i18n="grandTotal">সর্বমোট (Total)</strong></td><td id="total-stock"><strong>০</strong></td><td id="total-buy-price"><strong>৳০</strong></td><td id="total-sell-price"><strong>৳০</strong></td><td></td></tr></tfoot>
         </table></div>
       </div>
     </section>
 
-    <section id="page-products" class="page"><div class="page-head"><h1>পণ্য তালিকা</h1><button class="btn btn-primary open-add">+ নতুন পণ্য</button></div><div class="card"><div id="all-products" class="responsive-list"></div></div></section>
-    <section id="page-electronics" class="page"><div class="page-head"><h1>ইলেকট্রনিক্স পণ্য</h1><button class="btn btn-primary open-add">+ পণ্য যোগ করুন</button></div><div class="card"><div id="electronics-products" class="responsive-list"></div></div></section>
+    <section id="page-products" class="page"><div class="page-head"><h1 data-i18n="products">পণ্য তালিকা</h1><button class="btn btn-primary open-add">+ <span data-i18n="newProduct">নতুন পণ্য</span></button></div><div class="card"><div id="all-products" class="responsive-list"></div></div></section>
+    <section id="page-electronics" class="page"><div class="page-head"><h1 data-i18n="electronics">ইলেকট্রনিক্স পণ্য</h1><button class="btn btn-primary open-add">+ <span data-i18n="addProduct">পণ্য যোগ করুন</span></button></div><div class="card"><div id="electronics-products" class="responsive-list"></div></div></section>
 
     <section id="page-computer" class="page">
-      <div class="page-head"><h1>কম্পিউটার সার্ভিস</h1><button class="btn btn-primary" id="computer-add-btn">+ সার্ভিস যোগ করুন</button></div>
-      <div class="card"><form id="computer-form" class="inline-form"><input id="cs-name" placeholder="কাস্টমার/সার্ভিস" required><input id="cs-phone" placeholder="মোবাইল নম্বর" required><input id="cs-details" placeholder="সার্ভিসের বিবরণ"><input id="cs-price" type="number" placeholder="মূল্য" required><button class="btn btn-primary">সেভ</button></form></div>
+      <div class="page-head"><h1 data-i18n="computer">কম্পিউটার সার্ভিস</h1></div>
+      <div class="card"><form id="computer-form" class="inline-form"><select id="cs-name" required><option value="" selected disabled></option><option value="Windows Installation" data-i18n="windowsInstall">উইন্ডোজ ইন্সটল</option><option value="Software Installation" data-i18n="softwareInstall">সফটওয়্যার ইন্সটল</option><option value="Computer Repair" data-i18n="computerRepair">কম্পিউটার মেরামত</option><option value="Hardware Upgrade" data-i18n="hardwareUpgrade">হার্ডওয়্যার / RAM / SSD আপগ্রেড</option><option value="Virus Removal" data-i18n="virusRemoval">ভাইরাস পরিষ্কার</option><option value="Printer Setup" data-i18n="printerSetup">প্রিন্টার সেটআপ</option><option value="Network Setup" data-i18n="networkSetup">নেটওয়ার্ক / ইন্টারনেট সেটআপ</option><option value="Data Recovery" data-i18n="dataRecovery">ডাটা রিকভারি</option><option value="Typing and Printing" data-i18n="typingPrinting">টাইপিং / প্রিন্টিং</option><option value="Online Application" data-i18n="onlineApplication">অনলাইন আবেদন</option><option value="Other" data-i18n="otherComputerService">অন্যান্য</option><option value="Document Printing" data-i18n="documentPrint">ডকুমেন্ট প্রিন্ট</option><option value="Document Photocopy" data-i18n="documentPhotocopy">ডকুমেন্ট ফটোকপি</option><option value="ID Card Photocopy" data-i18n="idCardPhotocopy">আইডি কার্ড ফটোকপি</option><option value="Photo Printing - All Sizes" data-i18n="photoAllSizes">ছবি প্রিন্ট — সব সাইজ</option><option value="Passport Size Photo" data-i18n="passportPhoto">পাসপোর্ট সাইজ ছবি</option><option value="3R Size Photo" data-i18n="photo3R">৩R সাইজ ছবি</option><option value="All Print" data-i18n="allPrint">সব ধরনের প্রিন্ট</option></select><select id="cs-color"><option value="color" data-i18n="colorPrint">কালার</option><option value="bw" data-i18n="blackWhitePrint">সাদা-কালো</option><option value="non" data-i18n="nonPrint">নন</option></select><input id="cs-qty" type="number" min="1" step="1" value="1" placeholder="পৃষ্ঠা সংখ্যা" data-i18n-placeholder="pageCount" required><input id="cs-details" placeholder="সার্ভিসের বিবরণ" data-i18n-placeholder="serviceDetails"><input id="cs-price" type="number" placeholder="মূল্য" data-i18n-placeholder="price" required><button class="btn btn-primary" data-i18n="save">সেভ</button></form></div>
       <div class="card"><div id="computer-list" class="responsive-list"></div></div>
     </section>
 
     <section id="page-school" class="page">
-      <div class="page-head"><h1>স্কুল কলেজ</h1><button class="btn btn-primary" id="school-add-btn">+ তথ্য যোগ করুন</button></div>
-      <div class="card"><form id="school-form" class="inline-form"><input id="student-name" placeholder="শিক্ষার্থীর নাম" required><input id="student-phone" placeholder="মোবাইল নম্বর"><input id="student-class" placeholder="শ্রেণি/ক্লাস"><input id="student-fee" type="number" placeholder="ফি"><button class="btn btn-primary">সেভ</button></form></div>
+      <div class="page-head"><h1 data-i18n="school">স্কুল কলেজ</h1><button class="btn btn-primary" id="school-add-btn" data-i18n="addInfo">+ তথ্য যোগ করুন</button></div>
+      <div class="card"><h3 data-i18n="studentInfo">শিক্ষার্থীর তথ্য</h3><form id="school-form" class="inline-form"><input id="school-name" placeholder="স্কুল / কলেজের নাম" data-i18n-placeholder="schoolName" required><input id="student-name" placeholder="শিক্ষার্থীর নাম" data-i18n-placeholder="studentName" required><input id="student-phone" placeholder="মোবাইল নম্বর" data-i18n-placeholder="mobile"><input id="student-class" placeholder="শ্রেণি/ক্লাস" data-i18n-placeholder="class"><input id="student-fee" type="number" placeholder="ফি" data-i18n-placeholder="fee"><div id="school-custom-fields" class="inline-form"></div><button class="btn btn-primary" data-i18n="save">সেভ</button></form></div>
+      <div class="card"><h3 data-i18n="customQuestions">নিজের প্রশ্ন যোগ করুন</h3><form id="school-question-form" class="inline-form"><input id="school-question-input" placeholder="প্রশ্নের নাম" data-i18n-placeholder="questionName" required><button class="btn btn-primary" data-i18n="addQuestion">প্রশ্ন যোগ করুন</button></form><div id="school-questions-list" class="responsive-list"></div></div>
       <div class="card"><div id="school-list" class="responsive-list"></div></div>
+      <div class="card"><h3 data-i18n="wordDocument">Word ফাইল প্রিন্ট হিসাব</h3><form id="school-document-form" class="inline-form"><input id="document-school-name" placeholder="স্কুল / কলেজের নাম" data-i18n-placeholder="schoolName" required><input id="school-word-file" type="file" accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" required><input id="document-file-name" placeholder="ফাইলের নাম" data-i18n-placeholder="fileName" required><input id="document-pages" type="number" min="1" step="1" placeholder="পৃষ্ঠা সংখ্যা" data-i18n-placeholder="pageCount" required><input id="document-page-rate" type="number" min="0" step="0.01" placeholder="প্রতি পৃষ্ঠার দাম" data-i18n-placeholder="pageRate" required><input id="document-total-price" type="number" placeholder="মোট টাকা" data-i18n-placeholder="totalPrice" readonly><button class="btn btn-primary" data-i18n="uploadSave">আপলোড ও সেভ</button></form><p id="school-documents-status" class="hint" role="status" aria-live="polite"></p><progress id="school-documents-progress" max="100" value="0" aria-label="Upload progress" hidden></progress><div id="school-documents-list" class="responsive-list"></div></div>
     </section>
 
     <section id="page-print" class="page">
-      <div class="page-head"><h1>কার্ড/ফটো প্রিন্ট</h1><button class="btn btn-primary" id="print-add-btn">+ অর্ডার যোগ করুন</button></div>
-      <div class="card"><form id="print-form" class="inline-form"><input id="print-name" placeholder="কাস্টমারের নাম" required><input id="print-phone" placeholder="মোবাইল নম্বর"><input id="print-type" placeholder="অর্ডারের ধরন (কার্ড/ফটো/প্রিন্ট)"><input id="print-qty" type="number" placeholder="পরিমাণ" value="1"><input id="print-price" type="number" placeholder="মূল্য" required><button class="btn btn-primary">সেভ</button></form></div>
+      <div class="page-head"><h1 data-i18n="print">কার্ড/ফটো প্রিন্ট</h1><button class="btn btn-primary" id="print-add-btn" data-i18n="addOrder">+ অর্ডার যোগ করুন</button></div>
+      <div class="card"><form id="print-form" class="inline-form"><input id="print-name" placeholder="কাস্টমারের নাম" data-i18n-placeholder="customerName" required><input id="print-phone" placeholder="মোবাইল নম্বর" data-i18n-placeholder="mobile"><input id="print-type" placeholder="অর্ডারের ধরন (কার্ড/ফটো/প্রিন্ট)" data-i18n-placeholder="orderType"><input id="print-qty" type="number" placeholder="পরিমাণ" data-i18n-placeholder="quantity" value="1"><input id="print-price" type="number" placeholder="মূল্য" data-i18n-placeholder="price" required><button class="btn btn-primary" data-i18n="save">সেভ</button></form></div>
       <div class="card"><div id="print-list" class="responsive-list"></div></div>
     </section>
 
     <section id="page-bkash" class="page">
-      <div class="page-head"><h1>bKash লেনদেনের হিসাব</h1></div>
+      <div class="page-head"><h1 data-i18n="bkash">বিকাশ এজেন্ট</h1></div>
       <div class="card agent-card">
-        <div class="brand-disclaimer" role="note"><strong>স্বাধীন হিসাব রাখার সুবিধা — bKash-এর অফিসিয়াল সেবা নয়।</strong><p>সেরা বিজনেস হাব bKash-এর সঙ্গে অনুমোদিত বা সংযুক্ত নয়। এখানে আপনি নিজের দেওয়া তথ্য দিয়ে কেবল হিসাব লিখে রাখবেন। এই ফর্ম bKash-এ টাকা পাঠায় না, Cash In/Cash Out সম্পন্ন করে না এবং আসল লেনদেন যাচাই বা অ্যাকাউন্ট থেকে তথ্য পড়ে না।</p><p><strong>কখনো bKash PIN, OTP, পাসওয়ার্ড বা নিরাপত্তা কোড লিখবেন না।</strong> গ্রাহকের নাম/মোবাইল নম্বর সংরক্ষণের আগে তাঁর অনুমতি নিন।</p></div>
-        <h3>কাস্টমারের নম্বর / লেনদেনের নোট</h3>
-        <p class="hint">এটি কেবল আপনার হাতে লেখা হিসাব সংরক্ষণ করে; কোনো bKash লেনদেন সম্পন্ন বা যাচাই করে না।</p>
-        <form id="bkash-form" class="inline-form"><input id="bkash-name" placeholder="কাস্টমারের নাম"><input id="bkash-phone" type="tel" autocomplete="off" placeholder="কাস্টমারের মোবাইল নম্বর" required><select id="bkash-type"><option value="cash-in">Cash In — হিসাবের এন্ট্রি</option><option value="cash-out">Cash Out — হিসাবের এন্ট্রি</option><option value="payment">Payment</option><option value="send-money">Send Money</option></select><input id="bkash-amount" type="number" placeholder="টাকার পরিমাণ" required><input id="bkash-note" placeholder="নোট"><button class="btn btn-primary">লেনদেন সেভ</button></form>
+        <h3 data-i18n="saveCustomerTransaction">কাস্টমারের নম্বর / লেনদেন সংরক্ষণ</h3>
+        <p class="hint" data-i18n="bkashInfo">এখানে নম্বর আলাদা করে সংরক্ষণ হবে। OTP verification ব্যবহার করতে Firebase Console-এ Phone Authentication চালু করতে হবে। এই ফর্ম নিজে থেকে bKash-এর আসল অ্যাকাউন্টের লেনদেন পড়বে না।</p>
+        <form id="bkash-form" class="inline-form"><input id="bkash-name" placeholder="কাস্টমারের নাম" data-i18n-placeholder="customerName"><input id="bkash-phone" placeholder="বিকাশ নম্বর" data-i18n-placeholder="bkashNumber" required><select id="bkash-type"><option value="cash-in">Cash In</option><option value="cash-out">Cash Out</option><option value="payment">Payment</option><option value="send-money">Send Money</option></select><input id="bkash-amount" type="number" placeholder="টাকার পরিমাণ" data-i18n-placeholder="amount" required><input id="bkash-note" placeholder="নোট" data-i18n-placeholder="note"><button class="btn btn-primary" data-i18n="saveTransaction">লেনদেন সেভ</button></form>
       </div>
-      <div class="card"><h3>বিকাশ হিসাব</h3><div id="bkash-list" class="responsive-list"></div></div>
+      <div class="card"><h3 data-i18n="bkashSummary">বিকাশ হিসাব</h3><div id="bkash-list" class="responsive-list"></div></div>
     </section>
 
     <section id="page-nagad" class="page">
-      <div class="page-head"><h1>Nagad লেনদেনের হিসাব</h1></div>
+      <div class="page-head"><h1 data-i18n="nagad">নগদ এজেন্ট</h1></div>
       <div class="card agent-card">
-        <div class="brand-disclaimer" role="note"><strong>স্বাধীন হিসাব রাখার সুবিধা — Nagad-এর অফিসিয়াল সেবা নয়।</strong><p>সেরা বিজনেস হাব Nagad-এর সঙ্গে অনুমোদিত বা সংযুক্ত নয়। এখানে আপনি নিজের দেওয়া তথ্য দিয়ে কেবল হিসাব লিখে রাখবেন। এই ফর্ম Nagad-এ টাকা পাঠায় না, Cash In/Cash Out সম্পন্ন করে না এবং আসল লেনদেন যাচাই বা অ্যাকাউন্ট থেকে তথ্য পড়ে না।</p><p><strong>কখনো Nagad PIN, OTP, পাসওয়ার্ড বা নিরাপত্তা কোড লিখবেন না।</strong> গ্রাহকের নাম/মোবাইল নম্বর সংরক্ষণের আগে তাঁর অনুমতি নিন।</p></div>
-        <h3>কাস্টমারের নম্বর / লেনদেনের নোট</h3>
-        <p class="hint">এটি কেবল আপনার হাতে লেখা হিসাব সংরক্ষণ করে; কোনো Nagad লেনদেন সম্পন্ন বা যাচাই করে না।</p>
-        <form id="nagad-form" class="inline-form"><input id="nagad-name" placeholder="কাস্টমারের নাম"><input id="nagad-phone" type="tel" autocomplete="off" placeholder="কাস্টমারের মোবাইল নম্বর" required><select id="nagad-type"><option value="cash-in">Cash In</option><option value="cash-out">Cash Out</option><option value="payment">Payment</option><option value="send-money">Send Money</option></select><input id="nagad-amount" type="number" placeholder="টাকার পরিমাণ" required><input id="nagad-note" placeholder="নোট"><button class="btn btn-primary">লেনদেন সেভ</button></form>
+        <h3 data-i18n="saveCustomerTransaction">কাস্টমারের নম্বর / লেনদেন সংরক্ষণ</h3>
+        <p class="hint" data-i18n="nagadInfo">নম্বর ও লেনদেন আলাদাভাবে Firebase-এ সংরক্ষণ হবে। আসল Nagad account-এর transaction automatically পড়ার জন্য Nagad API/merchant access প্রয়োজন।</p>
+        <form id="nagad-form" class="inline-form"><input id="nagad-name" placeholder="কাস্টমারের নাম" data-i18n-placeholder="customerName"><input id="nagad-phone" placeholder="নগদ নম্বর" data-i18n-placeholder="nagadNumber" required><select id="nagad-type"><option value="cash-in">Cash In</option><option value="cash-out">Cash Out</option><option value="payment">Payment</option><option value="send-money">Send Money</option></select><input id="nagad-amount" type="number" placeholder="টাকার পরিমাণ" data-i18n-placeholder="amount" required><input id="nagad-note" placeholder="নোট" data-i18n-placeholder="note"><button class="btn btn-primary" data-i18n="saveTransaction">লেনদেন সেভ</button></form>
       </div>
-      <div class="card"><h3>নগদ হিসাব</h3><div id="nagad-list" class="responsive-list"></div></div>
+      <div class="card"><h3 data-i18n="nagadSummary">নগদ হিসাব</h3><div id="nagad-list" class="responsive-list"></div></div>
     </section>
 
     <section id="page-due" class="page">
-      <div class="page-head"><h1>বাকি খাতা</h1></div>
-      <div class="card"><form id="due-form" class="inline-form"><input id="due-name" placeholder="কাস্টমারের নাম" required><input id="due-phone" placeholder="মোবাইল নম্বর" required><input id="due-amount" type="number" placeholder="বাকি টাকা" required><select id="due-status"><option value="due">বাকি</option><option value="paid">পরিশোধ</option></select><input id="due-note" placeholder="নোট"><button class="btn btn-primary">সেভ</button></form></div>
+      <div class="page-head"><h1 data-i18n="due">বাকি খাতা</h1></div>
+      <div class="card"><form id="due-form" class="inline-form"><input id="due-name" placeholder="কাস্টমারের নাম" data-i18n-placeholder="customerName" required><input id="due-phone" placeholder="মোবাইল নম্বর" data-i18n-placeholder="mobile" required><input id="due-amount" type="number" placeholder="বাকি টাকা" data-i18n-placeholder="dueAmount" required><select id="due-status"><option value="due" data-i18n="dueShort">বাকি</option><option value="paid" data-i18n="paid">পরিশোধ</option></select><input id="due-note" placeholder="নোট" data-i18n-placeholder="note"><button class="btn btn-primary" data-i18n="save">সেভ</button></form></div>
       <div class="card"><div id="due-list" class="responsive-list"></div></div>
     </section>
 
+    <section id="page-barcode" class="page">
+      <div class="page-head">
+        <div><h1 data-i18n="barcodeTitle">বারকোড থেকে দাম খুঁজুন</h1><p class="page-subtitle" data-i18n="barcodeDescription">কোড স্ক্যান করে Google-এ পণ্যের দাম ও তথ্য দেখুন।</p></div>
+      </div>
+      <div class="card scanner-card">
+        <div class="scanner-actions">
+          <button type="button" id="barcode-start-btn" class="btn btn-primary"><i class="fa-solid fa-camera"></i><span data-i18n="scanStart">ক্যামেরা দিয়ে স্ক্যান</span></button>
+          <button type="button" id="barcode-stop-btn" class="btn btn-secondary" hidden><i class="fa-solid fa-stop"></i><span data-i18n="scanStop">স্ক্যান বন্ধ</span></button>
+        </div>
+        <video id="barcode-video" class="barcode-video" autoplay muted playsinline hidden></video>
+        <p id="barcode-camera-status" class="hint" role="status" aria-live="polite" data-i18n="cameraHelp">ক্যামেরা না চললে বারকোড নম্বর লিখুন।</p>
+        <form id="barcode-price-form" class="barcode-form">
+          <input id="barcode-price-input" type="text" inputmode="numeric" autocomplete="off" maxlength="80" placeholder="বারকোড নম্বর লিখুন" data-i18n-placeholder="barcodePlaceholder" required>
+          <button type="submit" class="btn btn-primary"><i class="fa-brands fa-google"></i><span data-i18n="googlePriceSearch">Google-এ দাম খুঁজুন</span></button>
+        </form>
+        <div id="barcode-price-results" class="lookup-results" hidden>
+          <div class="lookup-code"><span data-i18n="codeLabel">বারকোড:</span> <code id="barcode-price-result-code"></code></div>
+          <div id="barcode-inventory-status" class="status-box" hidden></div>
+          <div id="barcode-inventory-product" class="barcode-product-result" hidden>
+            <img id="barcode-local-image" class="barcode-product-image" alt="" hidden>
+            <div class="barcode-product-info"><strong id="barcode-local-name"></strong><p id="barcode-local-meta"></p><span data-i18n="savedSellPrice">আপনার সংরক্ষিত বিক্রয়মূল্য</span><strong id="barcode-local-price" class="barcode-local-price"></strong></div>
+          </div>
+          <p class="hint" data-i18n="priceDisclaimer">Google-এর ফলাফল অঞ্চল ও পণ্যভেদে ভিন্ন হতে পারে; দাম নিশ্চিত নয়।</p>
+          <div class="lookup-links">
+            <a id="barcode-google-price-link" class="btn btn-primary" target="_blank" rel="noopener noreferrer" data-i18n="googlePriceSearch">Google-এ দাম খুঁজুন</a>
+            <a id="barcode-google-shopping-link" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" data-i18n="googleShopping">Google Shopping</a>
+            <a id="barcode-google-images-link" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" data-i18n="googleImages">Google Images-এ ছবি দেখুন</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="page-product-photos" class="page">
+      <div class="page-head">
+        <div><h1 data-i18n="photoTitle">অনলাইনে পণ্যের ছবি</h1><p class="page-subtitle" data-i18n="photoDescription">বারকোড নম্বর দিয়ে Google Images-এ পণ্যের ছবি খুঁজুন।</p></div>
+      </div>
+      <div class="card scanner-card">
+        <form id="product-photo-form" class="barcode-form">
+          <input id="product-photo-input" type="text" inputmode="numeric" autocomplete="off" maxlength="80" placeholder="বারকোড নম্বর লিখুন" data-i18n-placeholder="barcodePlaceholder" required>
+          <button type="submit" class="btn btn-primary"><i class="fa-solid fa-magnifying-glass"></i><span data-i18n="photoSearch">পণ্যের ছবি খুঁজুন</span></button>
+        </form>
+        <p class="hint" data-i18n="photoFromScanHint">বারকোড স্ক্যান পেজে স্ক্যান করা নম্বর এখানে স্বয়ংক্রিয়ভাবে আসবে।</p>
+        <div id="product-photo-results" class="lookup-results" hidden>
+          <div class="lookup-code"><span data-i18n="codeLabel">বারকোড:</span> <code id="product-photo-result-code"></code></div>
+          <div id="product-local-photo" class="barcode-product-result" hidden>
+            <img id="product-local-image" class="barcode-product-image" alt="" hidden>
+            <div class="barcode-product-info"><strong id="product-local-name"></strong><p id="product-local-meta"></p></div>
+          </div>
+          <div class="lookup-links">
+            <a id="product-google-images-link" class="btn btn-primary" target="_blank" rel="noopener noreferrer" data-i18n="googleImages">Google Images-এ ছবি দেখুন</a>
+            <a id="product-google-details-link" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" data-i18n="googleProductDetails">Google-এ পণ্যের তথ্য দেখুন</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="page-online-products" class="page">
+      <div class="page-head">
+        <div><h1 data-i18n="onlineCatalogTitle">জেলা অনুযায়ী অনলাইন পণ্য</h1><p class="page-subtitle" data-i18n="onlineCatalogDescription">জেলা বেছে সেই এলাকার প্রকাশিত পণ্যের তালিকা দেখুন।</p></div>
+      </div>
+      <div class="card">
+        <label for="online-district-filter" data-i18n="selectDistrict">জেলা নির্বাচন করুন</label>
+        <select id="online-district-filter" class="language-select"></select>
+        <p class="hint" data-i18n="onlineCatalogHint">শুধু প্রকাশিত পণ্যের নাম, ছবি, বিক্রয়মূল্য ও স্টক দেখানো হয়।</p>
+        <p id="online-products-status" class="status-box" role="status" aria-live="polite" data-i18n="onlineChooseDistrict">পণ্য দেখতে একটি জেলা নির্বাচন করুন।</p>
+        <div id="online-products-list" class="online-products-grid"></div>
+      </div>
+    </section>
+
     <section id="page-settings" class="page">
-      <div class="page-head"><h1>সেটিং</h1></div>
+      <div class="page-head"><h1 data-i18n="settings">সেটিং</h1></div>
       <div class="card settings-card">
-        <h3>ব্যবসার তথ্য</h3>
-        <form id="settings-form" class="settings-form"><input id="business-name" placeholder="ব্যবসার নাম"><input id="business-phone" placeholder="ব্যবসার মোবাইল নম্বর"><input id="business-address" placeholder="ঠিকানা"><button class="btn btn-primary">সেটিং সেভ করুন</button></form>
+        <h3 data-i18n="appearanceSettings">চেহারা / Appearance</h3>
+        <label for="theme-select" data-i18n="selectTheme">থিম নির্বাচন করুন</label>
+        <select id="theme-select" class="language-select"><option value="light" data-i18n="lightMode">লাইট মোড</option><option value="dark" data-i18n="darkMode">ডার্ক মোড</option><option value="night" data-i18n="nightMode">নাইট মোড</option></select>
         <hr>
-        <h3>ফোন নম্বর</h3>
-        <p class="hint">bKash/Nagad-এর PIN, OTP বা পাসওয়ার্ড এই অ্যাপে সংগ্রহ করা হয় না। গ্রাহকের ব্যক্তিগত তথ্য সংরক্ষণের আগে তাঁর অনুমতি নিন।</p>
+        <h3 data-i18n="languageSettings">ভাষা / Language</h3>
+        <label for="language-select" data-i18n="selectLanguage">ভাষা নির্বাচন করুন</label>
+        <select id="language-select" class="language-select"><option value="bn">বাংলা</option><option value="en">English</option></select>
+        <hr>
+        <h3 data-i18n="businessInfo">ব্যবসার তথ্য</h3>
+        <form id="settings-form" class="settings-form"><input id="business-name" placeholder="ব্যবসার নাম" data-i18n-placeholder="businessName"><input id="business-phone" placeholder="ব্যবসার মোবাইল নম্বর" data-i18n-placeholder="businessMobile"><input id="business-address" placeholder="ঠিকানা" data-i18n-placeholder="address">
+          <hr>
+          <h3 data-i18n="onlineSettingsTitle">অনলাইন পণ্য তালিকা</h3>
+          <label class="online-toggle"><input id="online-publish-enabled" type="checkbox"><span data-i18n="onlinePublishToggle">আমার পণ্য অনলাইনে দেখান</span></label>
+          <p class="hint" data-i18n="onlinePublishHint">চালু করলে পণ্যের নাম, ছবি, দাম ও স্টক নির্বাচিত জেলার অনলাইন তালিকায় দেখা যাবে।</p>
+          <label for="online-publish-district" data-i18n="selectBusinessDistrict">আপনার ব্যবসার জেলা</label>
+          <select id="online-publish-district" class="language-select" disabled></select>
+          <button class="btn btn-primary" data-i18n="saveSettings">সেটিং সেভ করুন</button>
+        </form>
+        <hr>
+        <h3 data-i18n="phoneNumbers">ফোন নম্বর</h3>
+        <p class="hint" data-i18n="settingsPhoneHint">bKash/Nagad নম্বর আপনার নিজের Firebase ডাটায় রাখা হবে। SMS OTP login/verification চালু করতে Firebase Authentication → Phone সেটিং করতে হবে।</p>
         <div id="settings-status" class="status-box"></div>
+        <hr>
+        <div class="data-danger-zone">
+          <h3 data-i18n="deleteAllTitle">সব হিসাব ও ডাটা মুছুন</h3>
+          <p class="hint" data-i18n="deleteAllHint">এই অ্যাকাউন্টের পণ্য, বিক্রি, লাভ, বাকি এবং অন্যান্য সংরক্ষিত হিসাব স্থায়ীভাবে মুছে যাবে। Gmail লগইন অ্যাকাউন্ট মুছবে না।</p>
+          <button type="button" id="delete-all-data-btn" class="btn danger" data-i18n="deleteAll">সব ডাটা মুছুন</button>
+          <span id="delete-all-data-status" class="hint" role="status" aria-live="polite"></span>
+        </div>
       </div>
     </section>
   </main>
@@ -146,18 +260,21 @@
 
 <div id="modal" class="modal">
   <div class="modal-content">
-    <h3>নতুন পণ্য যোগ করুন</h3>
+    <h3 data-i18n="addNewProduct">নতুন পণ্য যোগ করুন</h3>
     <form id="add-product-form">
-      <label>পণ্যের ছবি:</label><input type="file" id="p-image" accept="image/*">
-      <input type="text" id="p-name" placeholder="পণ্যের নাম" required>
-      <input type="text" id="p-category" placeholder="ক্যাটাগরি (যেমন: ইলেকট্রনিক্স)" required>
-      <input type="number" id="p-stock" placeholder="স্টক পরিমাণ" required>
-      <input type="number" id="p-buy-price" placeholder="ক্রয়মূল্য (৳)" required>
-      <input type="number" id="p-sell-price" placeholder="বিক্রয়মূল্য (৳)" required>
-      <div class="modal-actions"><button type="submit" class="btn btn-primary">যোগ করুন</button><button type="button" id="close-modal" class="btn btn-secondary">বাতিল</button></div>
+      <label data-i18n="productImage">পণ্যের ছবি:</label><input type="file" id="p-image" accept="image/*">
+      <input type="text" id="p-name" placeholder="পণ্যের নাম" data-i18n-placeholder="productName" required>
+      <input type="text" id="p-category" placeholder="ক্যাটাগরি (যেমন: ইলেকট্রনিক্স)" data-i18n-placeholder="categoryExample" required>
+      <input type="text" id="p-barcode" inputmode="numeric" placeholder="বারকোড নম্বর (ঐচ্ছিক)" data-i18n-placeholder="optionalBarcode">
+      <input type="number" id="p-stock" placeholder="স্টক পরিমাণ" data-i18n-placeholder="stockQuantity" required>
+      <input type="number" id="p-buy-price" placeholder="ক্রয়মূল্য (৳)" data-i18n-placeholder="buyPriceCurrency" required>
+      <input type="number" id="p-sell-price" placeholder="বিক্রয়মূল্য (৳)" data-i18n-placeholder="sellPriceCurrency" required>
+      <div class="modal-actions"><button type="submit" class="btn btn-primary" data-i18n="add">যোগ করুন</button><button type="button" id="close-modal" class="btn btn-secondary" data-i18n="cancel">বাতিল</button></div>
     </form>
   </div>
 </div>
+<div id="offline-banner" class="offline-banner" role="status" aria-live="polite" hidden></div>
+<script src="pwa.js" defer></script>
 <script type="module" src="script.js"></script>
 </body>
 </html>
