@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://businesshisab.pages.dev/sitemap.xml
